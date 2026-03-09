@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Casamento Luiz Philipe & Roberta</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f3f3f3;
+text-align:center;
+margin:0;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+background:white;
+padding-bottom:30px;
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+
+h2{
+color:#8c6b2f;
+}
+
+.botoes{
+display:flex;
+justify-content:space-around;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+padding:20px;
+}
+
+.botao{
+background:white;
+border:2px solid #caa64b;
+border-radius:20px;
+padding:8px 12px;
+font-size:14px;
+font-weight:bold;
+color:#8c6b2f;
+text-decoration:none;
+cursor:pointer;
+flex:1;
+min-width:120px;
+text-align:center;
+}
+
+.botao:hover{
+background:#caa64b;
+color:white;
+}
+
+.contador{
+font-size:20px;
+margin:15px 0;
+color:#444;
+}
+
+input{
+padding:8px;
+border-radius:20px;
+border:1px solid #ccc;
+width:60%;
+margin-bottom:10px;
+}
+
+.pix-box{
+margin-top:10px;
+flex-basis:100%;
+}
+
+.pix-msg{
+font-size:14px;
+color:#555;
+margin-bottom:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="https://i.imgur.com/UHdjL26.jpeg" alt="Convite de Casamento">
+
+<h2>21 de Março de 2026 • 17:00</h2>
+
+<div class="contador" id="contador"></div>
+
+<div class="botoes">
+
+<a class="botao" target="_blank"
+href="https://www.google.com/maps/place/Estr.+Francisco+da+Cruz+Nunes,+5260+-+Piratininga,+Niter%C3%B3i+-+RJ">
+📍 Local
+</a>
+
+<input id="nome" placeholder="Digite seu nome">
+
+<button class="botao" onclick="confirmar()">https://imgur.com/a/aB50zli
+✅ Presença
+</button>
+
+<div class="pix-box">
+
+<p class="pix-msg">
+Gostaria de presentear os noivos com um Pix? 💝
+</p>
+
+<button class="botao" onclick="copiarPix()">
+🎁 Copiar Pix
+</button>
+
+<p id="pix"><b>barcelosluiz@hotmail.com</b></p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function confirmar(){
+
+var nome = document.getElementById("nome").value;
+
+if(nome==""){
+alert("Digite seu nome primeiro");
+return;
+}
+
+var mensagem = "Olá! Meu nome é "+nome+" e estou confirmando presença no casamento de Luiz Philipe e Roberta.";
+
+var url = "https://wa.me/5521982521559?text="+encodeURIComponent(mensagem);
+
+window.open(url);
+
+}
+
+function copiarPix(){
+
+var pix = document.getElementById("pix").innerText;
+
+navigator.clipboard.writeText(pix);
+
+alert("Chave Pix copiada!");
+
+}
+
+var dataCasamento = new Date("Mar 21, 2026 17:00:00").getTime();
+
+var x = setInterval(function(){
+
+var agora = new Date().getTime();
+
+var distancia = dataCasamento - agora;
+
+var dias = Math.floor(distancia / (1000*60*60*24));
+var horas = Math.floor((distancia % (1000*60*60*24))/(1000*60*60));
+var minutos = Math.floor((distancia % (1000*60*60))/(1000*60));
+
+document.getElementById("contador").innerHTML =
+"Faltam "+dias+" dias "+horas+"h "+minutos+"min para o nosso grande dia!";
+
+},1000);
+
+</script>
+
+</body>
+</html>
