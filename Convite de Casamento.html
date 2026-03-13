@@ -19,40 +19,42 @@ margin:0;
 max-width:500px;
 margin:auto;
 background:white;
-padding-bottom:30px;
+padding-bottom:40px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+border-radius:12px;
+overflow:hidden;
 }
 
 img{
 width:100%;
-border-radius:10px;
 }
 
 h2{
 color:#8c6b2f;
+margin-top:20px;
 }
 
 .botoes{
 display:flex;
-justify-content:space-around;
+flex-direction:column;
 align-items:center;
-flex-wrap:wrap;
-gap:10px;
+gap:15px;
 padding:20px;
 }
 
 .botao{
 background:white;
 border:2px solid #caa64b;
-border-radius:20px;
-padding:8px 12px;
-font-size:14px;
+border-radius:30px;
+padding:12px;
+font-size:16px;
 font-weight:bold;
 color:#8c6b2f;
 text-decoration:none;
 cursor:pointer;
-flex:1;
-min-width:120px;
-text-align:center;
+width:80%;
+max-width:250px;
+transition:0.3s;
 }
 
 .botao:hover{
@@ -61,28 +63,25 @@ color:white;
 }
 
 .contador{
-font-size:20px;
-margin:15px 0;
+font-size:22px;
+margin:20px;
 color:#444;
+font-weight:bold;
 }
 
 input{
-padding:8px;
-border-radius:20px;
+padding:10px;
+border-radius:25px;
 border:1px solid #ccc;
-width:60%;
-margin-bottom:10px;
+width:80%;
+max-width:250px;
+text-align:center;
 }
 
-.pix-box{
-margin-top:10px;
-flex-basis:100%;
-}
-
-.pix-msg{
+.footer{
+margin-top:20px;
 font-size:14px;
-color:#555;
-margin-bottom:5px;
+color:#777;
 }
 
 </style>
@@ -103,30 +102,19 @@ margin-bottom:5px;
 
 <a class="botao" target="_blank"
 href="https://www.google.com/maps/place/Estr.+Francisco+da+Cruz+Nunes,+5260+-+Piratininga,+Niter%C3%B3i+-+RJ">
-📍 Local
+📍 Ver Local
 </a>
 
 <input id="nome" placeholder="Digite seu nome">
 
 <button class="botao" onclick="confirmar()">
-✅ Presença
+✅ Confirmar Presença
 </button>
-
-<div class="pix-box">
-
-<p class="pix-msg">
-Gostaria de presentear os noivos com um Pix?
-Lembrando que o mais importante é a sua presença.💝
-</p>
-
-<button class="botao" onclick="copiarPix()">
-🎁 Copiar Pix
-</button>
-
-<p id="pix"><b>barcelosluiz@hotmail.com</b></p>
 
 </div>
 
+<div class="footer">
+Esperamos você nesse dia tão especial 💛
 </div>
 
 </div>
@@ -150,17 +138,7 @@ window.open(url);
 
 }
 
-function copiarPix(){
-
-var pix = document.getElementById("pix").innerText;
-
-navigator.clipboard.writeText(pix);
-
-alert("Chave Pix copiada!");
-
-}
-
-var dataCasamento = new Date("Mar 21, 2026 17:00:00").getTime();
+var dataCasamento = new Date("Mar 21, 2026 17:30:00").getTime();
 
 var x = setInterval(function(){
 
@@ -173,7 +151,7 @@ var horas = Math.floor((distancia % (1000*60*60*24))/(1000*60*60));
 var minutos = Math.floor((distancia % (1000*60*60))/(1000*60));
 
 document.getElementById("contador").innerHTML =
-"Faltam "+dias+" dias "+horas+"h "+minutos+"min para o nosso grande dia!";
+"Faltam "+dias+" dias "+horas+"h "+minutos+"min";
 
 },1000);
 
@@ -181,8 +159,3 @@ document.getElementById("contador").innerHTML =
 
 </body>
 </html>
-
-
-
-
-
